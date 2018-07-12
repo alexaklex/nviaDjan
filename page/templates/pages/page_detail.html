@@ -1,0 +1,49 @@
+{% extends 'base_layout.html' %}
+{% block posts %}
+			<!-- Content -->
+				<section id="content">
+					<div class="container">
+						<div class="row">
+							<div class="col-9 col-12-medium">
+
+								<!-- Main Content -->
+									<section class="pages">
+										<header>
+											<h2>{{ page_detail.title }}</h2>
+											<!-- <h3>A generic two column layout</h3> -->
+										</header>
+										<div class="text">{{page_detail.body}}</div>
+										<p>{{page_detail.date}}</p>
+                    <p><img src="{{ page_detail.thumb.url }}" alt=""></p>
+									</section>
+
+							</div>
+							<div class="col-3 col-12-medium">
+
+								<!-- Sidebar -->
+								<section >
+								  <header>
+								    <h2>Последние статьи</h2>
+								  </header>
+								  <ul class="link-list">
+								    {% for side in sidebar %}
+								      <li><a href="{% url 'articles:sidebar_detail' slug=side.slug %}"> {{ side.title }}</a></li>
+								    {% endfor %}
+								  </ul>
+								</section>
+								<section>
+								  <header>
+								    <h2>Банер рекламы</h2>
+								  </header>
+								  <p>
+								    Желающие разместить свою рекламу
+								  </p>
+								</section>
+								<!-- Sidebar -->
+
+
+							</div>
+						</div>
+					</div>
+				</section>
+{% endblock %}

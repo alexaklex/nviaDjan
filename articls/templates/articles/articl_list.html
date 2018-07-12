@@ -1,0 +1,34 @@
+{% extends 'base_layout.html' %}
+{% block posts %}
+{% include 'banner.html' %}
+
+	<section id="features">
+					<div class="container">
+						<div class="row">
+							{%  for post in art  %}
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Feature #1 -->
+									<section class="articl_main">
+											<div class="panel">
+											    <div class="cont">
+														<a href="{% url 'articles:detail' slug=post.slug %}" class="bordered-feature-image">
+															<img src="{{post.thumb.url}}" alt="" />
+														</a>
+													</div>
+											</div>
+
+										<h2><a href="{% url 'articles:detail' slug=post.slug %}">{{post.title }}</a> </h2>
+										<p>
+											{{post.snippet | safe }}
+										</p>
+										<p>{{post.date}}</p>
+									</section>
+
+							</div>
+							{% endfor %}
+
+						</div>
+					</div>
+				</section>
+{% endblock %}

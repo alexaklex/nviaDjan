@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+
+{% block posts %}
+
+<h1>Регистрация</h1>
+<form action="/account/signup/" class="site-form" method="POST">
+    {% csrf_token %}
+    {{ forma }}
+    <input type="submit" value="SignUp">
+</form>
+
+{% endblock %}

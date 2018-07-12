@@ -1,0 +1,15 @@
+{% extends 'base_layout.html' %}
+
+{% block posts %}
+
+<h1>Авторизация</h1>
+<form action="{% url 'account:login' %}" class="site-form" method="POST">
+    {% csrf_token %}
+    {{ forma }}
+    {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{request.GET.next}}">
+    {% endif %}
+    <input type="submit" value="Login">
+</form>
+
+{% endblock %}

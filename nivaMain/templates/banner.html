@@ -1,0 +1,26 @@
+{% block banner %}
+					<div id="banner">
+						<div class="container">
+					  <div class="single-item">
+							{% for slider in slider %}
+							<div class="row">
+
+									<div class="col-6 col-12-medium">
+											<p>{{slider.article.title}}</p>
+											<a href="{% url 'articles:slider_detail' slug=slider.article.slug %}" class="button-large">Подробнее</a>
+									</div>
+
+								<div class="col-6 col-12-medium imp-medium">
+									<!-- Banner Image -->
+									<div class="sliders">
+										<a href="" class="bordered-feature-image"><img src="{{slider.thumb.url}}" alt="" /></a>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							</div>
+
+
+						</div>
+					</div>
+{% endblock %}
